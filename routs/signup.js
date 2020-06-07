@@ -21,7 +21,7 @@ function signUpUser(req, res, next) {
         .then(user => {
           let token = users.getToken(user);
           // console.log("I'm here ------------------------------->", token);
-          res.status(201).send(user);
+          res.status(201).send(token);
         }).catch(err => {
           console.log('ERR!!', err);
           res.status(403).send('Invalid Signup! email is taken');

@@ -25,8 +25,8 @@ users.saveHash = async function(record) {
 users.authenticateBasic = async function(user, pass) {
   //     let de = await bcrypt.hash(record.password, 5);
   const dataRexord = await userread.read(user);
-  console.log('the record ---------------------->', dataRexord[0].user_name);
   console.log('the record ---------------------->', dataRexord);
+  console.log('the record ---------------------->', dataRexord[0].user_name);
 
   let valid = await bcrypt.compare(pass, dataRexord[0].password);
   return valid ? dataRexord : Promise.reject();
