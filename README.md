@@ -6,9 +6,7 @@
 
 
 ## Links and Resources
-- [doployed app]()
-- [submission PR]()
-- [github Action]()
+- [submission PR](https://github.com/401-advanced-javascript-ammar-hariry/auth-server/pull/1)
 
 ### module 
 ``server.js``
