@@ -8,24 +8,24 @@ const router = express.Router();
 router.post('/signup', signUpUser);
 
 function signUpUser(req, res, next) {
-    //     console.log("I'm here ------------------------------->");
+  //     console.log("I'm here ------------------------------->");
 
-    let userInfo = req.body;
-    //     console.log("I'm here ------------------------------->", userInfo);
+  let userInfo = req.body;
+  //     console.log("I'm here ------------------------------->", userInfo);
 
-    users.saveHash(userInfo)
-        .then(saveInfo => {
-            //        console.log("I'm here ------------------------------->", saveInfo);
+  users.saveHash(userInfo)
+    .then(saveInfo => {
+      //        console.log("I'm here ------------------------------->", saveInfo);
 
-            signUp.create(saveInfo)
-                .then(user => {
-                    let token = users.getToken(user);
-                    // console.log("I'm here ------------------------------->", token);
-                    res.status(201).send(token);
-                }).catch(err => {
-                    res.status(403).send('Invalid Signup! email is taken');
-                });
+      signUp.create(saveInfo)
+        .then(user => {
+          let token = users.getToken(user);
+          // console.log("I'm here ------------------------------->", token);
+          res.status(201).send(token);
+        }).catch(err => {
+          res.status(403).send('Invalid Signup! email is taken');
         });
+    });
 }
 
 
