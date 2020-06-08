@@ -33,9 +33,11 @@
 
 #### How to initialize/run your application (where applicable)
 - npm start
+- EndPoint: /
 - EndPoint: /signup
 - EndPoint: /signin
 - EndPoint: /users
+- EndPoint: /oauth
 
 #### test:
 - Lint test: npm run lint
