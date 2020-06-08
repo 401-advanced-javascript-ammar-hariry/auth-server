@@ -11,9 +11,8 @@ let users = {};
 users.saveHash = async function(record) {
 
   let dataRexord = await userread.read(record.user_name);
-  console.log('------------------------>', record.user_name);
-  console.log('the record ---------------------->', dataRexord[0].user_name);
-  if (record.user_name != dataRexord[0].user_name) {
+  console.log('------------------------>', dataRexord);
+  if (!dataRexord[0]) {
     record.password = await bcrypt.hash(record.password, 5);
     return record;
   } else {

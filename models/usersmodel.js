@@ -12,7 +12,7 @@ class User {
       //   console.log('<-------------------------- this is the user name ------------------------------->', record)
       let senc = await userSchema.find({ user_name: record });
       //   console.log('<-------------------------- this is the user name ------------------------------->', senc)
-      return senc;
+      return senc || null;
     } else {
       return await userSchema.find({});
     }
