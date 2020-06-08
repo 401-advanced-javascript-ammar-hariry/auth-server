@@ -29,6 +29,7 @@
 ``base-64``
 ``jsonwebtoken``
 ``bcrypt``
+``superagent``
 
 
 #### How to initialize/run your application (where applicable)
