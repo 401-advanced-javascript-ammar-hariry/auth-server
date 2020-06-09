@@ -38,4 +38,24 @@ users.getToken = function(user) {
   return token;
 };
 
+users.verifyToken = async function(token) {
+
+  return jwt.verify(token, SECRET, async function(err, decoded) {
+    if (err) {
+      console.log('Error :INVALID SECRET OR TOKEN ');
+      return Promise.reject(err);
+    }
+    //         console.log('decoded+++++++++++++++++++++++++++++++>', decoded);
+    let username = decoded.user_name;
+    //         console.log('username+++++++++++++++++++++++++++++++>', username);
+    let dataRexord = await userread.read(username);
+    //         console.log('data base 222 +++++++++++++++++++++++++++++++>', dataRexord);
+    if (dataRexord) {
+      return Promise.resolve(decoded);
+    }
+    return Promise.reject();
+  });
+
+};
+
 module.exports = users;
