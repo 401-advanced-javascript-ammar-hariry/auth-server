@@ -15,8 +15,8 @@ module.exports = (req, res, next) => {
     //         console.log('=======================here 33333333==============================', [user, pass]);
     users.authenticateBasic(user, pass)
       .then(validator => {
-        req.token = users.getToken(validator);
-        //       console.log('=======================here 44444444444==============================', req.token);
+        req.token = users.getToken(validator[0]);
+        //       console.log('=======================here 44444444444==============================', validator);
         next();
       }).catch(err => {
         next('you must sign up');

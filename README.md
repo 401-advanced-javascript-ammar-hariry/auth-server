@@ -39,6 +39,7 @@
 - EndPoint: /signin
 - EndPoint: /users
 - EndPoint: /oauth
+- EndPoint: /secret
 
 #### test:
 - Lint test: npm run lint
