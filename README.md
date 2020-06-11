@@ -6,9 +6,9 @@
 
 
 ## Links and Resources
-- [submission PR](https://github.com/401-advanced-javascript-ammar-hariry/auth-server/pull/5)
+- [submission PR](https://github.com/401-advanced-javascript-ammar-hariry/auth-server/pull/6)
 - [doployed app](https://dashboard.heroku.com/apps/authapp2020)
-- [github action](https://github.com/401-advanced-javascript-ammar-hariry/auth-server/runs/755334319)
+- [github action](https://github.com/401-advanced-javascript-ammar-hariry/auth-server/runs/760115881)
 
 ### module 
 ``server.js``
