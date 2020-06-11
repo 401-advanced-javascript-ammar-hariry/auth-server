@@ -1,5 +1,5 @@
 # auth-server
-## LAB - Class 11
+## LAB - Class 14
 
 ### Author: Ammar Al-Hariry
 
@@ -40,6 +40,11 @@
 - EndPoint: /users
 - EndPoint: /oauth
 - EndPoint: /secret
+- EndPoint: /read
+- EndPoint: /add
+- EndPoint: /change
+- EndPoint: /remove
+
 
 #### test:
 - Lint test: npm run lint
