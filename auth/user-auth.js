@@ -6,7 +6,12 @@ const userread = require('../models/usersmodel');
 require('dotenv').config();
 
 const SECRET = process.env.SECRET;
-
+let role = {
+  Regular_users: ['READ'],
+  Writers: ['READ', 'CREATE'],
+  Editors: ['READ', 'CREATE', 'UPDATE'],
+  Administrators: ['READ', 'CREATE', 'UPDATE', 'DELETE'],
+};
 let users = {};
 users.saveHash = async function(record) {
 
@@ -21,7 +26,7 @@ users.saveHash = async function(record) {
 
   }
 };
-
+// mongodb://localhost:27017/user-auth-db 
 users.authenticateBasic = async function(user, pass) {
   //     let de = await bcrypt.hash(record.password, 5);
   const dataRexord = await userread.read(user);
@@ -33,7 +38,7 @@ users.authenticateBasic = async function(user, pass) {
 };
 
 users.getToken = function(user) {
-  let token = jwt.sign({ user_name: user.user_name }, SECRET);
+  let token = jwt.sign({ user_name: user.user_name, capabilities: role[user.role] }, SECRET);
   //     console.log('------------------------>', token);
   return token;
 };
