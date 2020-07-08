@@ -7,6 +7,7 @@
 
 <body>
     <a id="login" href="">log in with GitHub</a>
+    <a id="oauth" href="">log in with facebook</a>
 </body>
 <script>
     let url = 'https://github.com/login/oauth/authorize';
@@ -25,6 +26,28 @@
     let link = document.getElementById('login');
     link.setAttribute('href', authURL);
     console.log("authURL: ", authURL)
+
+    //-----------------------------------------------------------------
+
+    let URL = 'https://developer19.us.auth0.com/authorize';
+
+    let options = {
+        client_id: 'nOcSoQqmbaynO6QSm7oyGi3JUKIHYYWb',
+        redirect_uri: 'http://localhost:3033/oauth',
+        response_type: 'code',
+        scope: 'read:user',
+        state: 'asldfjdfs'
+    }
+
+    let QueryString = Object.keys(options).map((key) => {
+        return `${key}=` + encodeURIComponent(options[key]);
+    }).join("&");
+
+    let authURL2 = `${URL}?${QueryString}`;
+
+    let link2 = document.getElementById('oauth');
+    console.log(link2);
+    link2.setAttribute('href', authURL2);
 </script>
 
 </html>
